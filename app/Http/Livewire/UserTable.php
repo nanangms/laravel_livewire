@@ -22,4 +22,19 @@ class UserTable extends Component
 
         session()->flash('success', 'User Berhasil Dihapus');
     }
+
+    public function userStatus($id)
+    {
+        $user = User::where('id',$id)->first();
+        if($user->is_active == 'Y'){
+            User::where('id', $id)->update([
+                'is_active' => 'N'
+            ]);
+           
+        }else{
+            User::where('id', $id)->update([
+                'is_active' => 'Y'
+            ]);
+        }
+    }
 }

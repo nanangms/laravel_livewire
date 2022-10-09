@@ -15,6 +15,7 @@
                     <td>{{ $products->firstItem() + $index }}</td>
                     <td>{{ $item->name }}</td>
                     <td>Rp.{{ number_format($item->price) }}</td>
+                    
                     <td>
                         <button class="btn badge bg-warning" data-bs-toggle="modal" data-bs-target="#editModal" wire:click="productEdit({{ $item }})">Update</button>
                         <button class="btn badge bg-danger" wire:click="productDelete({{$item->id}})">Delete</button>

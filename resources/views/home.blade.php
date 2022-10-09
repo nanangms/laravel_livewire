@@ -29,6 +29,19 @@
                 }
             })
         })
+
+        Livewire.on('success', data => {
+            console.log(data.pesan);
+            Swal.fire({
+              position: 'center',
+              icon: 'success',
+              title: data.pesan,
+              showConfirmButton: false,
+              timer: 1500
+            })
+        })
+
+        
     </script>
     <script>
         Livewire.on('productStore', () => {

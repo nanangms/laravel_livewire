@@ -47,6 +47,7 @@ class ProductTable extends Component
         $this->name = NULL;
         $this->price = NULL;
         $this->emit('productStore');
+        $this->emit('success',['pesan' => 'Berhasil Input Data']);
     }
 
     public function productDelete($id)
@@ -61,4 +62,6 @@ class ProductTable extends Component
     {
         Product::find($this->product_id)->delete();
     }
+
+    
 }
