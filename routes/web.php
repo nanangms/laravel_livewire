@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,4 +24,11 @@ Route::get('/testing', function () {
 
 Route::get('/users', function () {
     return view('users.index');
-});
+})->name('user.home');
+
+Route::get('/user/{id}', [UserController::class, 'show'])->name('user.show');
+Route::get('/user/{id}/edit', [UserController::class, 'edit'])->name('user.edit');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
